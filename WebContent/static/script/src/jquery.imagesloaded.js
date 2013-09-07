@@ -17,10 +17,12 @@
 // callback function is passed the last image to load
 //   as an argument, and the collection as `this`
 
-
-$.fn.imagesLoaded = function( callback ){
-	var elems = this.find('img'), elems_src = [], self = this, len = elems.length;
-
+$.fn.imagesLoaded = function(callback){
+	var elems = this.find('img');
+	var elems_src = [];
+	var self = this;
+	var len = elems.length;
+	
 	if(!len){
 		callback.call(self);
 		return this;
@@ -28,7 +30,6 @@ $.fn.imagesLoaded = function( callback ){
 	
 	elems.one('load error', function(){
 		if(--len == 0){
-			//?冲掉重来 && 重复 why
 			len = elems.length;
 			elems.one('load error', function(){
 				if(--len == 0){
@@ -39,7 +40,6 @@ $.fn.imagesLoaded = function( callback ){
 			});
 		}
 	}).each(function(){
-		//将图片资源存放起来
 		elems_src.push(this.src);
 		this.src = "";
 	});
