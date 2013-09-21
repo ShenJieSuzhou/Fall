@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!doctype html>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
@@ -9,7 +9,7 @@
 
   <title>jQuery Wookmark Plug-in Example</title>
   <meta name="description" content="An very basic example of how to use the Wookmark jQuery plug-in.">
-  <meta name="author" content="Christoph Ono, Sebastian Helzle">
+  <meta name="author" content="Christoph Ono">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
@@ -79,39 +79,26 @@
 
   <!-- Include the plug-in -->
   <script src="static/script/src/jquery.wookmark.js"></script>
+
+  <!-- Once the images are loaded, initalize the Wookmark plug-in. -->
   <script type="text/javascript">
-  	(function($){
-  		$('#tiles').imagesLoaded(function(){
-  			//prepare layout options
-  			var options = {
-  				itemWidth: 200,
-  				autoResize: true,
-  				container: $('#tiles'),
-  				offset: 5,
-  				flexibleWidth: 310
-  			};
-  			
-  			//get the reference to the falls item 
-  			var handle = $('#tiles li');
-  			
-  			//call the layout
-  			handle.wookmark(options);
-  		});s
-  	})(jQuery);
+    $('#tiles').imagesLoaded(function() {
+      // Prepare layout options.
+      var options = {
+        itemWidth: 200, // Optional min width of a grid item
+        autoResize: true, // This will auto-update the layout when the browser window is resized.
+        container: $('#tiles'), // Optional, used for some extra CSS styling
+        offset: 5, // Optional, the distance between grid items
+        flexibleWidth: 310 // Optional, the maximum width of a grid item
+      };
+
+      // Get a reference to your grid items.
+      var handler = $('#tiles li');
+
+      // Call the layout function.
+      handler.wookmark(options);
+    });
   </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
